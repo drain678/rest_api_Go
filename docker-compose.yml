@@ -1,38 +1,31 @@
-version: '3'
 services:
   mysuperapp-1:
     build:
       context: .
-    networks:
-      - rest_api_go_my_network
+      dockerfile: Dockerfile
+
 
   contact-service-1:
     build:
       context: .
-    networks:
-      - rest_api_go_my_network
+      dockerfile: Dockerfile
+
 
   contact-service-2:
     build:
       context: .
-    networks:
-      - rest_api_go_my_network
+      dockerfile: Dockerfile
+
 
   contact-service-3:
     build:
       context: .
-    networks:
-      - rest_api_go_my_network
+      dockerfile: Dockerfile
+
 
   balancer:
     image: nginx:alpine3.21
     ports:
       - 8080:80
-    networks:
-      - rest_api_go_my_network
     volumes:
       - ./nginx:/etc/nginx/templates
-
-networks:
-  rest_api_go_my_network:
-    external: true

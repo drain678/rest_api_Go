@@ -9,8 +9,6 @@ COPY . .
 RUN --mount=type=cache,target="/root/.cache/go-build" \
    go build -o apps ./main.go
 
-
-
 FROM alpine:3.21
 
 WORKDIR /mysuperapp
